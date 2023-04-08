@@ -15,7 +15,8 @@ Copyright:    ©2005 Robert J. Lang. All Rights Reserved.
 Constructor
 *****/
 tmwxHtmlHelpFrame::tmwxHtmlHelpFrame(wxHtmlHelpData* data) : 
-  wxHtmlHelpFrame(data)
+  wxHtmlHelpFrame(data),
+  m_Printer(NULL)
 {
 }
 
@@ -58,8 +59,9 @@ Perform the File->Print... command
 void tmwxHtmlHelpFrame::OnPrint(wxCommandEvent& event)
 {
   TMASSERT(m_Printer);
-  TMASSERT(!!m_HtmlWin->GetOpenedPage());
-  m_Printer->PrintFile(m_HtmlWin->GetOpenedPage());
+  const wxHtmlWindow* htmlWin = GetHelpWindow()->GetHtmlWindow();
+  TMASSERT(!!htmlWin->GetOpenedPage());
+  m_Printer->PrintFile(htmlWin->GetOpenedPage());
 }
 
 
@@ -78,8 +80,9 @@ Perform the File->Print Preview... command
 void tmwxHtmlHelpFrame::OnPrintPreview(wxCommandEvent& event)
 {
   TMASSERT(m_Printer);
-  TMASSERT(!!m_HtmlWin->GetOpenedPage());
-  m_Printer->PreviewFile(m_HtmlWin->GetOpenedPage());
+  const wxHtmlWindow* htmlWin = GetHelpWindow()->GetHtmlWindow();
+  TMASSERT(!!htmlWin->GetOpenedPage());
+  m_Printer->PreviewFile(htmlWin->GetOpenedPage());
 }
 
 

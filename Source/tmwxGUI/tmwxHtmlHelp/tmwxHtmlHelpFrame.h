@@ -34,6 +34,9 @@ public:
   void OnPrintPreviewUpdateUI(wxUpdateUIEvent& event);
   void OnPrintPreview(wxCommandEvent& event);
   DECLARE_EVENT_TABLE()
+
+private:
+  wxHtmlEasyPrinting* m_Printer;
 };
 
 
