@@ -1045,7 +1045,7 @@ void tmwxDesignCanvas::DrawPaper<tmwxDesignCanvas::Text>(wxDC& dc)
     dc.SetTextForeground(*wxBLACK);
     wxPoint p1 = TreeToDC(tmPoint(0, theTree->GetPaperHeight()));
     p1.y -= PixelsToDC(HEADER_OFFSET);
-    mDoc->GetPrintableName(text);
+    text = mDoc->GetDocumentName();
     dc.DrawText(text, p1);
     wxPoint p2 = TreeToDC(tmPoint(theTree->GetPaperWidth(), 
       theTree->GetPaperHeight()));

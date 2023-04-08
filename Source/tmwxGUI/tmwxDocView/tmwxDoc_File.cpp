@@ -42,7 +42,7 @@ Useful for recording tree structures while version 5 format is in flux.
 void tmwxDoc::OnExportv4(wxCommandEvent&)
 {
   wxString pname;
-  GetPrintableName(pname);
+  pname = GetDocumentName();
   wxString pname1 = pname.BeforeLast(wxT('.')); // strip extension
   if (pname1.empty()) pname1 = pname;
   pname1 += wxT("_v4.tmd5");
