@@ -1089,10 +1089,10 @@ wxPrintData& tmwxApp::GetPrintData()
 /*****
 Return the current page setup settings
 *****/
-wxPageSetupData& tmwxApp::GetPageSetupData()
+wxPageSetupDialogData& tmwxApp::GetPageSetupData()
 {
   if (!mPageSetupData)
-    mPageSetupData = new wxPageSetupData();
+    mPageSetupData = new wxPageSetupDialogData();
   return *mPageSetupData;
 }
 

@@ -24,6 +24,7 @@ class wxHtmlWindow;
 class wxHtmlHelpController;
 class wxFileName;
 class wxServerBase;
+class wxPageSetupDialogData;
 
 // Doc architecture choice
 #ifdef TM_USE_MDI
@@ -221,7 +222,7 @@ public:
   static void SetPalettes(tmwxDoc* doc = NULL);
   bool IsQuitting() const {return mIsQuitting;};
   wxPrintData& GetPrintData();
-  wxPageSetupData& GetPageSetupData();
+  wxPageSetupDialogData& GetPageSetupData();
   
 #if defined(__LINUX__) || defined(__WXMSW__)
   wxIcon GetAppIcon() const { return mConfig.mAppIcon; }
@@ -273,7 +274,7 @@ private:
   wxString mDataDir;
   tmwxHtmlHelpController* mHelp;
   wxPrintData* mPrintData;
-  wxPageSetupData* mPageSetupData;
+  wxPageSetupDialogData* mPageSetupData;
   struct { // runtime configuration/parameters
     wxString mInstallDir; // if ! empty, installation directory
     wxArrayString mArgs; // copy of non-option cmdline arguments
