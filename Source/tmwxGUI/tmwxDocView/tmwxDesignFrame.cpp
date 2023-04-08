@@ -61,7 +61,10 @@ also need to update our floating windows with the currently-active palette.
 *****/
 void tmwxDesignFrame::OnActivate(wxActivateEvent& event)
 {
-  tmwxDocChildFrame::OnActivate(event); // let base class finish handling the event.
+  BaseClass::OnActivate(event); // let base class finish handling the event.
+
+  if (m_childView)
+      m_childView->Activate(event.GetActive());
 
   if (event.GetActive()) {
     // Make sure the application now knows we're the top window in order to
