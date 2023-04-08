@@ -47,7 +47,7 @@ void tmwxDoc::OnExportv4(wxCommandEvent&)
   if (pname1.empty()) pname1 = pname;
   pname1 += wxT("_v4.tmd5");
   wxFileDialog fileDialog(NULL, wxT("Export Tree"), wxEmptyString, pname1, 
-    wxT("*.tmd5"), wxSAVE | wxOVERWRITE_PROMPT);
+    wxT("*.tmd5"), wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
   int ret = fileDialog.ShowModal();
   if (ret == wxID_CANCEL) return;
   wxString fname = fileDialog.GetPath();
