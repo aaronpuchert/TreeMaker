@@ -86,7 +86,7 @@ INCCFLAGS = \
 	-I$(H2S)/tmwxGUI/tmwxLogFrame \
 	-I$(H2S)/tmwxGUI/tmwxOptimizerDialog \
 	-I$(H2S)/tmwxGUI/tmwxHtmlHelp \
-	`pkg-config gtk+-2.0 --cflags`
+	`pkg-config gtk+-3.0 --cflags`
 
 #--- Source files (not all binaries need all of them)
 PTRSRC =$(H2S)/tmModel/tmPtrClasses/tmDpptrTarget.cpp
@@ -259,7 +259,7 @@ APP = $(BUILDROOT)/$(PROGRAM)
 $(APP): $(OBJS)
 	@echo Linking TreeMaker \($(PROGRAM)\)
 	@$(CXX) -o $(APP) -L../tmModel $(OBJS) $(CFLAGS) \
-	$(H2S)/tmHeader.cpp `$(WXCONFIG) --libs`
+	$(H2S)/tmHeader.cpp `$(WXCONFIG) --libs` `pkg-config gtk+-3.0 --libs`
 
 #--- Auxiliary and optional targets
 
