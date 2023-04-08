@@ -1464,7 +1464,7 @@ bool tmwxPrefsDialog::TransferDataFromWindow()
   tmNLCO::Algorithm algorithm = 
     tmNLCO::Algorithm(mAlgorithm->GetCurrentSelection());
   tmNLCO::SetAlgorithm(algorithm);
-  wxConfig::Get()->Write(ALGORITHM_KEY, algorithm);
+  wxConfig::Get()->Write(ALGORITHM_KEY, int(algorithm));
   
   int showAboutAtStartup = mShowAboutAtStartup->GetValue();
   wxConfig::Get()->Write(SHOW_ABOUT_AT_STARTUP_KEY, showAboutAtStartup);
