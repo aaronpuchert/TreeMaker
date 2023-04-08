@@ -45,7 +45,6 @@ void tmwxOptimizerDialog::DoStartModal() {
     wxBeginBusyCursor ();
     Show (true);
     SetFocus();
-    m_modalShowing = true;
     g_openDialogs++;
     gtk_grab_add (m_widget);
 }
