@@ -1133,7 +1133,7 @@ bool tmwxApp::ProcessEvent(wxEvent& event)
   wxWindow* topWindow = wxTheApp->GetTopWindow();
   if (mHelp && topWindow == (wxWindow*)(mHelp->mHtmlHelpFrame)) {
     eventStack.push_back(&event);
-    if (topWindow && topWindow->ProcessEvent(event)) {
+    if (topWindow && topWindow->HandleWindowEvent(event)) {
       eventStack.pop_back();
       return true;
     }
