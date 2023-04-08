@@ -30,7 +30,7 @@ public:
 
   tmwxHtmlHelpController();
   wxHtmlHelpFrame* CreateHelpFrame(wxHtmlHelpData* data);
-  void CreateHelpWindow();
+  wxWindow* CreateHelpWindow();
 };
 
 
