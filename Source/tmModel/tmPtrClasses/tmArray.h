@@ -171,7 +171,7 @@ Add an element to the beginning of the list
 template <class T>
 void tmArray<T>::push_front(const T& t)
 {
-  insert(this->begin(), t);
+  this->insert(this->begin(), t);
 }
 
 
@@ -182,7 +182,7 @@ Add an element to the list if it isn't already there
 template <class T>
 void tmArray<T>::union_with(const T& t)
 {
-  if (find(this->begin(), this->end(), t) == this->end()) push_back(t);
+  if (find(this->begin(), this->end(), t) == this->end()) this->push_back(t);
 }
 
 
@@ -206,7 +206,7 @@ Remove an item from a list given its index
 template <class T>
 tmArray<T>& tmArray<T>::RemoveItemAt(std::size_t n)
 {
-  erase(this->begin() + ptrdiff_t(n) - 1);
+  this->erase(this->begin() + ptrdiff_t(n) - 1);
   return *this;
 }
 
@@ -217,7 +217,7 @@ Remove an item from a list given its value
 template <class T>
 void tmArray<T>::erase_remove(const T& t)
 {
-  erase(remove(this->begin(), this->end(), t), this->end());
+  this->erase(remove(this->begin(), this->end(), t), this->end());
 }
 
 
@@ -240,7 +240,7 @@ template <class T>
 tmArray<T>& tmArray<T>::InsertItemAt(std::size_t n, const T& t)
 {
   TMASSERT(n > 0); // 1-based indexing
-  insert(this->begin() + ptrdiff_t(n) - 1, t);
+  this->insert(this->begin() + ptrdiff_t(n) - 1, t);
   return *this;
 }
 
@@ -293,7 +293,7 @@ void tmArray<T>::rotate_left()
 {
   if (this->empty()) return;
   T t = this->front();
-  erase(this->begin());
+  this->erase(this->begin());
   this->push_back(t);
 }
 
@@ -306,7 +306,7 @@ void tmArray<T>::rotate_right()
 {
   if (this->empty()) return;
   T t = this->back();
-  erase(this->rbegin());
+  this->erase(this->rbegin());
   this->push_front(t);
 }
 
@@ -331,7 +331,7 @@ Append all elements of another list
 template <class T>
 void tmArray<T>::merge_with(const tmArray<T>& aList)
 {
-  insert(this->end(), aList.begin(), aList.end());
+  this->insert(this->end(), aList.begin(), aList.end());
 }
 
 
