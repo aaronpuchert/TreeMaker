@@ -113,7 +113,7 @@ void tmOnAssert(int cond, const char* szFile, int nLine,
   wxString strFile;  strFile.FromAscii(szFile);
   wxString strCond;  strCond.FromAscii(szCond);
   wxString strMsg;   strMsg.FromAscii(szMsg);
-  tmOnAssert(cond, strFile.c_str(), nLine, strCond.c_str(), strMsg.c_str());
+  tmOnAssert(cond, strFile.c_str().AsWChar(), nLine, strCond.c_str().AsWChar(), strMsg.c_str().AsWChar());
 }
 #endif // wxUSE_UNICODE
 
