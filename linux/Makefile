@@ -6,8 +6,6 @@
 ### Check and optionally change the next few lines in order to match 
 ### your platform
 
-# Where wxWidgets is installed
-WXHOME = /opt/wxGTK-2.6.2
 # Binary name
 PROGRAM = TreeMaker
 # Installation directory prefix (usually /usr/local); by wxWidgets
@@ -29,8 +27,7 @@ OPTIONS += -DINSTALL_PREFIX=\"$(INSTALL_PREFIX)/\"
 OPTIONS += -DCAF
 
 # Auxiliary wxWidgets apps
-WXCONFIG = $(WXPATH)/wx-config
-WXHLPCACHEDIR = $(WXPATH)/utils/hhp2cached
+WXCONFIG = wx-config
 
 # Auxiliary program files
 HELP = $(BUILDGENERIC)/help.zip
@@ -40,19 +37,15 @@ BUILD ?= release
 
 ifeq ($(BUILD),debug)
   CONDFLAGS = -DTMWX -D__WXDEBUG__ -g 
-  WX = debug
 else
 ifeq ($(BUILD),devel)
   CONDFLAGS = -DTMWX -DTMDEBUG -g
-  WX = release
 else
 ifeq ($(BUILD),profile)
   CONDFLAGS = -DTMWX -DTMPROFILE -O3 -g -pg
-  WX = release
 else
 ifeq ($(BUILD),release)
   CONDFLAGS = -DTMWX -O3
-  WX = release
 endif
 endif
 endif
@@ -60,8 +53,6 @@ endif
 
 CFLAGS = `$(WXCONFIG) --cxxflags` \
 	-Wall $(CONDFLAGS) $(OPTIONS) $(INCCFLAGS) 
-# Use either debug or release build directories of wxW
-WXPATH = $(WXHOME)/build-$(WX)
 # You may remake everything here anytime you want
 BUILDGENERIC = build
 # We'll leave dependency, object and binary files here
