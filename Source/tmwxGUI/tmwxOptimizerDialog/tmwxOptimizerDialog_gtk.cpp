@@ -18,7 +18,7 @@ Copyright:    ©2004 Carlos A. Furuti. All Rights Reserved.
 #include "tmwxStr.h"
 #include "tmwxOptimizerDialog.h"
 
-extern int g_openDialogs;
+static int g_openDialogs;
 
 void tmwxOptimizerDialog::DoStartModal() {
   /* CAF - essentially lifted from wxGTK 2.5.1's wxDialog::ShowModal, up to
