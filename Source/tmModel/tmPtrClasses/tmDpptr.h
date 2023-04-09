@@ -61,10 +61,8 @@ public:
   
   // Comparison with raw types (typically ptr_t_const, const tmDpptr<T>&, or
   // int (null ptr))
-  template <class R>
-    bool operator==(R r) const {return mTarget == (ptr_t_const)(r);};
-  template <class R>
-    bool operator!=(R r) const {return mTarget != (ptr_t_const)(r);};
+  bool operator==(T* r) const {return mTarget == r;}
+  bool operator!=(T* r) const {return mTarget != r;}
   
   // Dereferencing
   T& operator *() const {return *mTarget;};
