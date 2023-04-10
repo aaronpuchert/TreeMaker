@@ -11,7 +11,7 @@ PROGRAM = TreeMaker
 # Installation directory prefix (usually /usr/local); by wxWidgets
 # convention for Unix, data files will always be created in a 
 # subdirectory of $(INSTALL_PREFIX)/share
-INSTALL_PREFIX = /usr/local
+INSTALL_PREFIX ?= /usr/local
 ## Application name (part of the data files directory; by default 
 ## "TreeMaker 5") OBSOLETE - must think of a smarter way
 #TM_APP_NAME_STR = "TreeMaker5"
@@ -20,7 +20,7 @@ INSTALL_PREFIX = /usr/local
 ### The remaining lines should be ok
 
 #--- Compiling options
-OPTIONS =
+OPTIONS ?=
 OPTIONS += -DAPPNAME=\"$(TM_APP_NAME_STR)\" 
 OPTIONS += -DINSTALL_PREFIX=\"$(INSTALL_PREFIX)/\" 
 # Temporary for experimental Linux development
