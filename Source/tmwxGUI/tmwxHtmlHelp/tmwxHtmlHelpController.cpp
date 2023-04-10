@@ -31,6 +31,12 @@ parameters that go with this frame.
 wxHtmlHelpFrame* tmwxHtmlHelpController::CreateHelpFrame(wxHtmlHelpData* data)
 {
   mHtmlHelpFrame = new tmwxHtmlHelpFrame(data);
+  mHtmlHelpFrame->SetController(this);
+  mHtmlHelpFrame->SetTitleFormat(m_titleFormat);
+  mHtmlHelpFrame->Create(m_parentWindow, -1, wxEmptyString, m_FrameStyle, m_Config, m_ConfigRoot);
+  mHtmlHelpFrame->SetShouldPreventAppExit(m_shouldPreventAppExit);
+  m_helpFrame = mHtmlHelpFrame;
+
   mHtmlEasyPrinting = new wxHtmlEasyPrinting();
   mHtmlEasyPrinting->SetFooter(
     wxT("<hr><p align=\"right\">page @PAGENUM@ of @PAGESCNT@</p>"), 
