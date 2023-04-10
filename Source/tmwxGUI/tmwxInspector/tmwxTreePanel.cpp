@@ -46,13 +46,13 @@ tmwxTreePanel::tmwxTreePanel(wxWindow* parent)
   wxBoxSizer* symsizer = new wxBoxSizer(wxHORIZONTAL);
   symsizer->Add(1, 0, 1);
   symsizer->Add(mHasSymmetry = new tmwxCheckBoxSmall(this, wxT("Symmetry")),
-    0, wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL | wxTOP|wxBOTTOM, 2);
+    0, wxALIGN_CENTER_VERTICAL | wxTOP|wxBOTTOM, 2);
   symsizer->Add(10, 0, 0);
   symsizer->Add(mDiag = new tmwxButtonSmall(this, wxT("Diag"), BUTTON_WIDTH),
     0, wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL | wxTOP|wxBOTTOM, 2);
   symsizer->Add(10, 0, 0);
   symsizer->Add(mBook = new tmwxButtonSmall(this, wxT("Book"), BUTTON_WIDTH),
-    0, wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL | wxTOP|wxBOTTOM, 2);
+    0, wxALIGN_CENTER_VERTICAL | wxTOP|wxBOTTOM, 2);
   symsizer->Add(1, 0, 1);
   mPanelSizer->Add(symsizer, 0, wxGROW);
   
