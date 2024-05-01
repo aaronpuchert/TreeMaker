@@ -58,7 +58,7 @@ AUTHOR:
 #endif
 
 
-#if defined(sparc64)
+#ifdef __LP64__
 # define WN_SIZEOF_PTR  8
 # define WN_SIZEOF_LONG  8
 # define WN_SIZEOF_INT  4
