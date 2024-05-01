@@ -51,8 +51,8 @@ endif
 endif
 endif
 
-CFLAGS = `$(WXCONFIG) --cxxflags` \
-	-Wall $(CONDFLAGS) $(OPTIONS) $(INCCFLAGS) 
+WX_CFLAGS := $(shell $(WXCONFIG) --cxxflags)
+CFLAGS = $(WX_CFLAGS) -Wall $(CONDFLAGS) $(OPTIONS) $(INCCFLAGS)
 # You may remake everything here anytime you want
 BUILDGENERIC = build
 # We'll leave dependency, object and binary files here
@@ -60,7 +60,7 @@ BUILDROOT = $(BUILDGENERIC)/$(BUILD)
 # Relative path from here to source directory
 H2S = ../Source
 # Extended header path
-INCCFLAGS = \
+INCCFLAGS := \
 	-I$(H2S)/ \
 	-I$(H2S)/tmModel \
 	-I$(H2S)/tmModel/tmPtrClasses \
@@ -86,7 +86,7 @@ INCCFLAGS = \
 	-I$(H2S)/tmwxGUI/tmwxLogFrame \
 	-I$(H2S)/tmwxGUI/tmwxOptimizerDialog \
 	-I$(H2S)/tmwxGUI/tmwxHtmlHelp \
-	`pkg-config gtk+-3.0 --cflags`
+	$(shell pkg-config gtk+-3.0 --cflags)
 
 #--- Source files (not all binaries need all of them)
 PTRSRC =$(H2S)/tmModel/tmPtrClasses/tmDpptrTarget.cpp
